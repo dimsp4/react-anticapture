@@ -1,6 +1,6 @@
 # React Anticapture
 
-![demo](public\demo.gif)
+![demo](.\public\demo.gif)
 
 [![CI](https://github.com/dimsp4/react-anticapture/actions/workflows/merge-jobs.yml/badge.svg)](https://github.com/dimsp4/react-anticapture/actions/workflows/merge-jobs.yml)
 [![Storybook deploy](https://github.com/dimsp4/react-anticapture/actions/workflows/pages.yml/badge.svg)](https://github.com/dimsp4/react-anticapture/actions/workflows/pages.yml)
