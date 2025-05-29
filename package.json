@@ -1,5 +1,6 @@
 {
   "name": "react-anticapture",
+  "homepage": "https://github.com/dimsp4/react-anticapture",
   "private": false,
   "version": "0.1.0",
   "type": "module",
