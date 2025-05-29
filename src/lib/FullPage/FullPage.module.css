@@ -1,0 +1,53 @@
+:fullscreen,
+:-webkit-full-screen,
+:-moz-full-screen {
+    background-color: rgba(0, 0, 0, 0) !important;
+}
+
+/* Wrapper for content with anti-selection properties */
+.anticapture-wrapper {
+    position: relative;
+}
+
+.alert-anticapture {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+    text-align: center;
+}
+
+.user-select-on {
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    /* Older Opera syntax */
+    user-select: none;
+}
+
+/* Blur effect for content */
+.anticapture-blur-page {
+    filter: blur(6px);
+    pointer-events: none;
+    /* Disables interaction with blurred content */
+}
+
+/* Print media query to hide elements when printing */
+@media print {
+
+    /* You might need to directly target these class names in the build output,
+       or make these print styles global, as CSS Modules hash class names. */
+    .anticapture-wrapper {
+        display: none;
+    }
+
+    .alert-anticapture {
+        display: none;
+    }
+
+    .anticapture-blur-page {
+        display: none;
+    }
+}
