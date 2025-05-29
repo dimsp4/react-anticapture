@@ -77,12 +77,13 @@ export default function App() {
 
 ## Props
 
-| Prop      | Type    | Default | Description                                        |
-|-----------|---------|---------|----------------------------------------------------|
-| children  | ReactNode | -     | The content to protect                             |
-| blur      | boolean | false   | If true, applies a blur effect on hover/selection  |
-| overlay   | boolean | false   | If true, adds a visible overlay to discourage capture |
-| ...       |         |         | (See Storybook or source for more props)           |
+| Prop               | Type               | Default | Description                                                                                      |
+|--------------------|--------------------|---------|--------------------------------------------------------------------------------------------------|
+| screenshotPrevent  | boolean            | true   | If true, prevents common screenshot and screen recording keyboard shortcuts.                      |
+| userSelect         | boolean            | true   | If true, allows user text selection (turns on CSS `user-select`).                                |
+| targetClick        | HTMLElement \| null|  null      | An optional HTMLElement to attach click listeners for dismissing blur. Defaults to the component's internal wrapper if not provided. |
+| clipboardPrevent   | boolean            | false   | If true, prevents clipboard copy/paste actions and context menu inside the component.             |
+| devtoolsPrevent    | boolean            | false   | If true, detects and prevents developer tools from being open.                                    |
 
 ---
 

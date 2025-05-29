@@ -14,12 +14,11 @@ export interface FullPageProps extends UseAntiCaptureProps {
  * A React component that wraps your application content to provide full-page anti-capture protection.
  * It uses the `useAntiCapture` hook internally to manage blur, alerts, and event listeners.
  */
-const FullPage: FC<PropsWithChildren<FullPageProps>> = (props) => {
-    const {
-        children,
-        userSelect,
-        ...hookProps // Destructure remaining props to pass directly to the hook
-    } = props;
+const FullPage: FC<PropsWithChildren<FullPageProps>> = ({
+    children,
+    userSelect = true,
+    ...hookProps // Destructure remaining props to pass directly to the hook
+}) => {
 
     const { blurPage, alertText } = useAntiCapture(hookProps); // Pass hookProps to the hook
 
