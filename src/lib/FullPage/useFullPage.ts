@@ -1,6 +1,6 @@
 import devTools from "devtools-detect";
 import { CLIPBOARD, COPY, ENTER, DEFAULT, AlertType } from "@/shared/constant";
-import { warningDevtools, isBlacklistedCommand, exitFullscreen } from "@/shared/utils";
+import { warningDevtools, isBlacklistedCommand } from "@/shared/utils";
 import { useState, useEffect } from 'react';
 
 /**
@@ -211,7 +211,7 @@ export const useAntiCapture = ({
         };
     }, [alertText.type]);
 
-    const handleWrapperClick = (e: MouseEvent) => {
+    const handleWrapperClick = () => {
 
         if (blurPage && ![ENTER, CLIPBOARD].includes(alertText.type)) {
             setBlurPage(false);

@@ -1,6 +1,5 @@
 import { FC, PropsWithChildren } from 'react';
 import { useAntiCapture, UseAntiCaptureProps } from './useFullPage'; // Import types
-import { CLIPBOARD, ENTER } from '@/shared/constant';
 import classes from "./FullPage.module.css"
 
 /**
