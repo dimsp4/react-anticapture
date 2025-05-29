@@ -1,5 +1,7 @@
 # React Anticapture
 
+![demo](public\demo.gif)
+
 [![CI](https://github.com/dimsp4/react-anticapture/actions/workflows/merge-jobs.yml/badge.svg)](https://github.com/dimsp4/react-anticapture/actions/workflows/merge-jobs.yml)
 [![Storybook deploy](https://github.com/dimsp4/react-anticapture/actions/workflows/pages.yml/badge.svg)](https://github.com/dimsp4/react-anticapture/actions/workflows/pages.yml)
 
@@ -37,7 +39,7 @@ yarn add react-anticapture
 
 ## Usage
 
-Simply import and wrap any sensitive content within the `<AntiCapture>` component:
+Simply import and wrap any sensitive page within the `<AntiCapture>` component:
 
 ```jsx
 import { AntiCapture } from 'react-anticapture';
@@ -50,25 +52,6 @@ function ConfidentialSection() {
         This section contains sensitive information. Copying, selecting, and screenshots are discouraged.
       </p>
     </AntiCapture>
-  );
-}
-```
-
-### Example
-
-```jsx
-import { AntiCapture } from 'react-anticapture';
-
-export default function App() {
-  return (
-    <div>
-      <h1>Welcome to My App</h1>
-      <AntiCapture>
-        <div>
-          <strong>PIN:</strong> 1234
-        </div>
-      </AntiCapture>
-    </div>
   );
 }
 ```
