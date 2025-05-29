@@ -1,94 +1,108 @@
-[![CI](https://github.com/morewings/react-library-template/actions/workflows/merge-jobs.yml/badge.svg)](https://github.com/morewings/react-library-template/actions/workflows/merge-jobs.yml)
-[![Storybook deploy](https://github.com/morewings/react-library-template/actions/workflows/pages.yml/badge.svg)](https://github.com/morewings/react-library-template/actions/workflows/pages.yml)
-[![Use this template](https://img.shields.io/badge/use%20this-template-blue?logo=githu)](https://github.com/morewings/react-library-template/generate)
+# React Anticapture
 
-# React Library Template
+[![CI](https://github.com/dimsp4/react-anticapture/actions/workflows/merge-jobs.yml/badge.svg)](https://github.com/dimsp4/react-anticapture/actions/workflows/merge-jobs.yml)
+[![Storybook deploy](https://github.com/dimsp4/react-anticapture/actions/workflows/pages.yml/badge.svg)](https://github.com/dimsp4/react-anticapture/actions/workflows/pages.yml)
 
-[![NPM library Create React App template logo](./design/logo.jpg)](#)
+A lightweight React component that helps prevent users from capturing (copying, selecting, or screenshotting) sensitive information rendered on your website.
 
-This template repository is your shortcut to building awesome React components and libraries!
+---
 
-Forget about the tedious setup – we've got you covered. Focus on writing your code, and let this template handle the rest.
+## What is React Anticapture?
+
+**React Anticapture** provides a simple `<AntiCapture>` component that you can wrap around any part of your React app to discourage or block screen capture, selection, and copying of sensitive content. It applies various browser techniques to reduce the risk of data leakage through screenshots, screen readers, copy-paste, and other client-side methods.
+
+---
 
 ## Features
 
-- **TypeScript & JavaScript**: Write your code in the language you prefer.
-- **Blazing fast**: **pnpm** for speedy package management and **Vite** for lightning-fast builds.
-- **Husky** enforces pre-commit hooks, **Eslint** and **Stylelint** will keep your code tidy and consistent.
-- **Jest** and **react-testing-library** help you write robust tests.
-- **Storybook** lets you create interactive demos and docs for your components.
-- **Optional Tailwind CSS**: If you're into it, you can easily enable Tailwind CSS for styling.
+- Prevents text selection and copying inside wrapped content
+- Applies CSS tricks to discourage screenshots (e.g., blur, overlays)
+- Prevents right-click and context menu
+- Lightweight and easy to use
+- Works with any React project (TypeScript & JavaScript)
 
-See it in action: [Demo Storybook](https://morewings.github.io/react-library-template/)
+---
 
-This template is your starting point for building high-quality React libraries. Clone it, customize it, and let's build something amazing!
+## Installation
 
-## Quickstart
-
-### Prerequisites
-
-1. Install **Node** >= 20.x.
-2. Install **pnpm**. E.g. `corepack prepare pnpm@latest --activate`.
-
-
-### Installation
-
-Manually clone repo or use `degit`.
-
-```shell script
-# With CSS Modules config
-npx degit github:morewings/react-library-template my-library
-# With Tailwind CSS config
-npx degit github:morewings/react-library-template#tailwind my-library
-cd ./my-library
-pnpm i
+```bash
+pnpm add react-anticapture
+# or
+npm install react-anticapture
+# or
+yarn add react-anticapture
 ```
 
+---
 
-## Enable Tailwind CSS
+## Usage
 
-You can find all changes at this [PR](https://github.com/morewings/react-library-template/pull/161) and [tailwind](https://github.com/morewings/react-library-template/tree/tailwind) branch.
+Simply import and wrap any sensitive content within the `<AntiCapture>` component:
 
-## Improve tree shaking
+```jsx
+import { AntiCapture } from 'react-anticapture';
 
-The default settings allow modern bundlers such as Vite and esbuild successfully tree-shake unused modules from the bundle.
-Unfortunately there are problems with Next.js and Webpack not capable to tree-shake single file ES Module.
-
-In order to fix this enable `preserveModules` setting in Rollup options.
-
-```ts
-import {defineConfig} from 'vite';
-
-export default defineConfig(() => ({
-    // ...
-    build: {
-        lib: {
-            // ...
-            fileName: (format, entryName) => {
-                // Create entry file(s) inside the bundle
-                if (entryName === 'src/lib/index') {
-                    return `index.${format === 'es' ? 'js' : 'cjs'}`;
-                // Organize external dependencies which included in the bundle
-                } else if (entryName.includes('node_modules')) {
-                    return `external/module.${format === 'es' ? 'js' : 'cjs'}`
-                }
-                // Keep other modules in places
-                return `${entryName}.${format === 'es' ? 'js' : 'cjs'}`;
-            },
-            // Change bundle formats to ES Modules and commonJS.
-            // UMD bundle will not work with preserveModules:true
-            formats: ['es', 'cjs'],
-        },
-        rollupOptions: {
-            // ...
-            output: {
-                // ...
-                preserveModules: true,
-            },
-        },
-    },
-}));
-
+function ConfidentialSection() {
+  return (
+    <AntiCapture>
+      <h2>Confidential Information</h2>
+      <p>
+        This section contains sensitive information. Copying, selecting, and screenshots are discouraged.
+      </p>
+    </AntiCapture>
+  );
+}
 ```
 
-You can find all changes at corresponding [PR](https://github.com/morewings/react-library-template/pull/352) and [tree-shaking](https://github.com/morewings/react-library-template/tree/tree-shaking) branch.
+### Example
+
+```jsx
+import { AntiCapture } from 'react-anticapture';
+
+export default function App() {
+  return (
+    <div>
+      <h1>Welcome to My App</h1>
+      <AntiCapture>
+        <div>
+          <strong>PIN:</strong> 1234
+        </div>
+      </AntiCapture>
+    </div>
+  );
+}
+```
+
+---
+
+## Props
+
+| Prop      | Type    | Default | Description                                        |
+|-----------|---------|---------|----------------------------------------------------|
+| children  | ReactNode | -     | The content to protect                             |
+| blur      | boolean | false   | If true, applies a blur effect on hover/selection  |
+| overlay   | boolean | false   | If true, adds a visible overlay to discourage capture |
+| ...       |         |         | (See Storybook or source for more props)           |
+
+---
+
+## Limitations
+
+- **No client-side solution can provide 100% protection** against screenshots or determined users. React Anticapture is intended to deter common capture attempts and raise the effort required.
+- Not all browsers or extensions can be fully blocked.
+
+---
+
+## Demo
+
+Try it out in Storybook: [Live Demo](https://dimsp4.github.io/react-anticapture/)
+
+---
+
+## License
+
+MIT
+
+---
+
+Inspired by modern needs for client-side data privacy and protection.
