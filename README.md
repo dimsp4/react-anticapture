@@ -4,6 +4,7 @@
 
 [![CI](https://github.com/dimsp4/react-anticapture/actions/workflows/merge-jobs.yml/badge.svg)](https://github.com/dimsp4/react-anticapture/actions/workflows/merge-jobs.yml)
 [![Storybook deploy](https://github.com/dimsp4/react-anticapture/actions/workflows/pages.yml/badge.svg)](https://github.com/dimsp4/react-anticapture/actions/workflows/pages.yml)
+[![npm version](https://img.shields.io/npm/v/react-anticapture.svg?style=flat-square)](https://www.npmjs.com/package/react-anticapture)
 
 A lightweight React component that helps prevent users from capturing (copying, selecting, or screenshotting) sensitive information rendered on your website.
 
