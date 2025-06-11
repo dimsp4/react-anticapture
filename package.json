@@ -2,7 +2,7 @@
   "name": "react-anticapture",
   "homepage": "https://github.com/dimsp4/react-anticapture",
   "private": false,
-  "version": "0.1.4",
+  "version": "0.1.5",
   "type": "module",
   "files": [
     "dist"
@@ -82,8 +82,7 @@
     "react-dom": ">=18.2.0"
   },
   "dependencies": {
-    "devtools-detect": "^4.0.2",
-    "lodash": "^4.17.21"
+    "devtools-detect": "^4.0.2"
   },
   "devDependencies": {
     "@eslint/compat": "1.2.8",

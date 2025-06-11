@@ -11,9 +11,6 @@ importers:
       devtools-detect:
         specifier: ^4.0.2
         version: 4.0.2
-      lodash:
-        specifier: ^4.17.21
-        version: 4.17.21
     devDependencies:
       '@eslint/compat':
         specifier: 1.2.8

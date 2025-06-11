@@ -1,6 +1,5 @@
 import type {FC} from 'react';
 import {useEffect} from 'react';
-import {throttle} from 'lodash';
 
 import classes from './TemplateName.module.css';
 import useLogic from './useLogic';
@@ -14,10 +13,10 @@ export const TemplateName: FC<Props> = ({initialValue = 0}) => {
     const {count, incrementCount} = useLogic(initialValue);
 
     useEffect(() => {
-        const runner = throttle(() => {
-            console.log('throttle');
-        }, 10);
-        runner();
+        // const runner = throttle(() => {
+        //     console.log('throttle');
+        // }, 10);
+        // runner();
     }, []);
     return (
         <div className={classes.templateName}>

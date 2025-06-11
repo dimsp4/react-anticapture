@@ -7,7 +7,7 @@
 > **NPM:** [react-anticapture](https://www.npmjs.com/package/react-anticapture)  
 > _A lightweight React component that helps prevent users from capturing (copying, selecting, or screenshotting) sensitive information rendered on your website._
 
-![demo](./public/demo.gif)
+![demo](https://raw.githubusercontent.com/dimsp4/react-anticapture/main/public/demo.gif)
 
 ---
 
